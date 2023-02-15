@@ -2,36 +2,20 @@
   box-sizing: border-box;
   margin: 0;
 }
+
 body {
   width: 100vw;
   height: 100vh;
   font-family: Helvetica, Arial, sans-serif;
-
-  background: rgba(188, 105, 138, 0.5);
-  background-image: radial-gradient(circle at bottom left, rgba(255, 255, 0, 0.9), rgba(255, 255, 0, 0) 70%),
-    radial-gradient(circle at top left, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0) 70%),
-    radial-gradient(circle at center right, rgba(255, 0, 255, 0.8), rgba(255, 0, 255, 0) 50%);
-  background-size: 200% 200%;
-  animation: movement 30s ease infinite alternate-reverse;
+  color: #FFF;
+  background: #272727;
 }
 
-@keyframes movement {
-  0% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 50% 0%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
+header h1 {
+  font-size: 5rem;
+  text-align: center;
 }
+
 
 main section {
   display: flex;

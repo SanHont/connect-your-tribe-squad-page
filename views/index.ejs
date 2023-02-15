@@ -3,7 +3,13 @@
 <main>
   <h1><%= squad.name %></h1>
 
-  <a href="/?squad=<%= squad.slug %>"><%= squad.name %></a>
+  <a href="/?squad=squad-a-2022">Squad A</a>
+  <a href="/?squad=squad-b-2022">Squad B</a>
+  <a href="/?squad=squat-c-2022">Squad C</a>
+  <hr />
+
+  <a href="/?squad=<%= squad.slug %>&orderBy=name">Sorteer op naam</a>
+  <hr />
   <section>
     <!-- Hier komen de members -->
     <% squad.members.forEach(member => { %>
@@ -13,7 +19,6 @@
       <% }else{ %>
       <img src="/placeholder.jpg" alt="Placeholder avatar" />
       <% } %>
-
       <h2><%= member.name %> <%= member.prefix %> <%= member.surname %></h2>
     </article>
     <% }) %>

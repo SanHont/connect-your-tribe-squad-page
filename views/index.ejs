@@ -1,24 +1,43 @@
 <%- include('./partials/head.ejs') %>
 
-<main>
-  <nav>
-    <a href="/?squad=<%= squad.slug %>&orderBy=name">Sorteer op voornaam</a>
-    <a href="/?squad=<%= squad.slug %>&orderBy=surname">Sorteer op achternaam</a>  
-  </nav>
-  <h1><%= squad.name %></h1>
-  <section>
+  <h2>
+    <%= squad.name %>
+  </h2>
+  <main>
     <!-- Hier komen de members -->
-    <% squad.members.forEach(member => { %>
-    <article>
-      <% if (member.avatar) { %>
-      <img src="<%= member.avatar %>" alt="De avatar van <%= member.name %>" />
-      <% }else{ %>
-      <img src="/placeholder.jpg" alt="Placeholder avatar" />
-      <% } %>
-      <h2><%= member.name %> <%= member.prefix %> <%= member.surname %></h2>
-    </article>
-    <% }) %>
-  </section>
-</main>
+    <section class="students-wrapper">
+      <% squad.members.forEach(member=> { %>
+        <a href="<%= member.website %>">
+          <article>
+            <% if (member.avatar) { %>
+              <img src="<%= member.avatar %>" alt="De avatar van <%= member.name %>" />
+              <% }else{ %>
+                <img src="/placeholder.jpg" alt="Placeholder avatar" />
+                <% } %>
+                  <h3>
+                    <%= member.name %>
+                      <%= member.prefix %>
+                        <%= member.surname %>
+                  </h3>
+          </article>
+        </a>
+        <% }) %>
+    </section>
 
-<%- include('./partials/foot.ejs') %>
+    <div class="filters">
+      <div class="squad-filter">
+        <h4>Selecteer een squad <span>:</span></h4>
+        <a href="/?squad=squad-a-2022">Squad A</a>
+        <a href="/?squad=squad-b-2022">Squad B</a>
+        <a href="/?squad=squat-c-2022">Squad C</a>
+      </div>
+      <div class="sort-filter">
+        <h4>Sorteer studenten <span>:</span></h4>
+        <a href="/?squad=<%= squad.slug %>&orderBy=name">Sorteer op voornaam</a>
+        <a href="/?squad=<%= squad.slug %>&orderBy=surname">Sorteer op achternaam</a>
+      </div>
+    </div>
+
+  </main>
+
+  <%- include('./partials/foot.ejs') %>
